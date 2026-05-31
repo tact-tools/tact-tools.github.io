@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+.cache/
+.vite/
+*.log
+.preview*.png
+
+# Generated during local screenshot preparation; WebP assets are committed.
+assets/screenshots/*-full.png
