@@ -74,15 +74,11 @@ a {
 }
 
 .brand-mark {
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 34px;
+  height: 34px;
+  display: block;
   border-radius: var(--radius);
-  color: var(--terminal);
-  background: #f7f7f3;
-  font-weight: 900;
+  object-fit: cover;
 }
 
 .site-nav nav {
