@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tact Keyboard is an Android keyboard built around field-aware typing, terminal safety, explicit privacy, and stable touch geometry.">
+  <meta name="description" content="Tact Keyboard is a field-aware Android keyboard for notes, terminals, private fields, symbols, emoji, and one-time codes.">
   <meta property="og:title" content="Tact Keyboard">
-  <meta property="og:description" content="An Android keyboard for prose, terminals, private fields, and the places where wrong help costs more than no help.">
+  <meta property="og:description" content="A serious Android keyboard for places where mistakes matter.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tact.tools/">
-  <meta property="og:image" content="https://tact.tools/assets/screenshots/prose-full.webp">
+  <meta property="og:image" content="https://tact.tools/assets/screenshots/otp-background-full.webp">
   <title>Tact Keyboard</title>
   <link rel="icon" type="image/png" href="assets/brand/tact-tools-icon.png">
   <link rel="stylesheet" href="styles.css">
@@ -19,131 +19,186 @@
       <img class="brand-mark" src="assets/brand/tact-tools-icon.png" alt="" aria-hidden="true">
       <span>Tact</span>
     </a>
-    <nav>
-      <a href="#captures">Captures</a>
-      <a href="#principles">Principles</a>
-      <a href="#status">Status</a>
+    <nav aria-label="Sections">
+      <a href="#fields">Fields</a>
+      <a href="#tools">Tools</a>
+      <a href="#terminal">Terminal</a>
+      <a href="#preview">Preview</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-media" aria-hidden="true">
-        <img class="hero-phone hero-phone-primary" src="assets/screenshots/prose-full.webp" alt="">
-        <img class="hero-phone hero-phone-terminal" src="assets/screenshots/terminal-paste-shield.webp" alt="">
-        <img class="hero-strip" src="assets/screenshots/tact-mesh.webp" alt="">
+        <img class="hero-shot hero-shot-main" src="assets/screenshots/otp-background-full.webp" alt="">
+        <img class="hero-shot hero-shot-terminal" src="assets/screenshots/terminal-full.webp" alt="">
+        <img class="hero-shot hero-shot-editor" src="assets/screenshots/editor-full.webp" alt="">
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">Android keyboard in progress</p>
+        <p class="eyebrow">Android keyboard in active development</p>
         <h1 id="hero-title">Tact Keyboard</h1>
-        <p class="hero-lede">A keyboard for prose, terminals, private fields, and the places where wrong help costs more than no help.</p>
+        <p class="hero-lede">A field-aware Android keyboard for notes, terminals, private fields, symbols, emoji, and one-time codes.</p>
         <div class="hero-actions" aria-label="Primary links">
-          <a class="button button-primary" href="#captures">See emulator captures</a>
-          <a class="button button-secondary" href="#status">Development status</a>
+          <a class="button button-primary" href="mailto:hello@tact.tools?subject=Tact%20Keyboard%20preview">Join the preview list</a>
+          <a class="button button-secondary" href="#tools">See the keyboard</a>
         </div>
       </div>
     </section>
 
-    <section class="intro-band" aria-label="Product summary">
-      <div class="intro-copy">
-        <p>Tact treats the field as the contract. A message, password prompt, URL bar, SSH session, and split-screen workflow should not receive the same keyboard behavior.</p>
+    <section class="signal-strip" aria-label="Product summary">
+      <div>
+        <b>Local first</b>
+        <span>Suggestion surfaces stay on device.</span>
       </div>
-      <div class="intro-stats" aria-label="Design anchors">
-        <div><b>Stable</b><span>letters stay where muscle memory expects them</span></div>
-        <div><b>Literal</b><span>terminal input is not silently rewritten</span></div>
-        <div><b>Explicit</b><span>AI, learning, voice, and privacy state surface only when relevant</span></div>
+      <div>
+        <b>Field aware</b>
+        <span>Notes, URLs, terminals, and OTPs get different controls.</span>
+      </div>
+      <div>
+        <b>Literal when needed</b>
+        <span>Terminal mode avoids surprise rewrites.</span>
+      </div>
+      <div>
+        <b>Personal</b>
+        <span>Emoji, symbols, scripts, sources, and backgrounds live in the keyboard.</span>
       </div>
     </section>
 
-    <section class="section" id="captures" aria-labelledby="captures-title">
-      <div class="section-heading">
-        <p class="eyebrow">Current emulator evidence</p>
-        <h2 id="captures-title">Real captures, synthetic text.</h2>
-        <p>These are cropped from the Android emulator smoke artifacts. They are not final marketing renders, but they show the shape of the implemented keyboard work so far.</p>
+    <section class="section intro-section" id="fields" aria-labelledby="fields-title">
+      <div class="section-copy">
+        <p class="eyebrow">Different fields, different rules</p>
+        <h2 id="fields-title">The keyboard changes behavior before you make a mistake.</h2>
+        <p>Tact treats the focused field as the contract. A note, URL bar, SSH prompt, and one-time-code field should not receive the same keyboard behavior.</p>
       </div>
 
-      <div class="capture-grid">
-        <article class="capture">
-          <img src="assets/screenshots/prose-suggestions.webp" alt="Tact prose keyboard showing suggestion chips, proud Backspace, spacebar, and lower-right keyboard menu.">
+      <div class="surface-grid">
+        <article class="surface-card">
+          <img src="assets/screenshots/editor-full.webp" width="1080" height="2400" alt="Tact keyboard in a notes editor with a calm prose layout.">
           <div>
-            <h3>Prose surface</h3>
-            <p>Stable QWERTY, grouped suggestions, a wide spacebar, outboard Backspace, and the lower-right keyboard menu.</p>
+            <h3>Prose stays calm</h3>
+            <p>A stable letter layout, local suggestions, a wide spacebar, and high-consequence controls kept apart.</p>
           </div>
         </article>
-
-        <article class="capture capture-dark">
-          <img src="assets/screenshots/terminal-paste-shield.webp" alt="Tact terminal keyboard with Esc, Tab, Ctrl, command symbols, and a visible Enter key.">
+        <article class="surface-card">
+          <img src="assets/screenshots/browser-full.webp" width="1080" height="2400" alt="Tact keyboard in a browser address field with URL punctuation.">
           <div>
-            <h3>Terminal mode</h3>
-            <p>Literal command entry with visible Esc, Tab, modifiers, command symbols, and a real Enter key.</p>
+            <h3>URLs get URL controls</h3>
+            <p>Browser fields promote punctuation and action labels that match the place you are typing.</p>
           </div>
         </article>
-
-        <article class="capture">
-          <img src="assets/screenshots/tact-mesh.webp" alt="Debug overlay showing overlapping touch probability fields over the visible keyboard.">
+        <article class="surface-card surface-card-dark">
+          <img src="assets/screenshots/terminal-full.webp" width="1080" height="2400" alt="Tact terminal keyboard with Esc, Tab, Ctrl, punctuation, and Enter visible.">
           <div>
-            <h3>Tact Mesh</h3>
-            <p>The visible keys are landmarks. The hit model underneath can use larger, overlapping fields without moving letters around.</p>
+            <h3>Terminals stay literal</h3>
+            <p>Command entry gets Esc, Tab, modifiers, shell punctuation, and a visible Enter key.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section split-section" id="principles" aria-labelledby="principles-title">
-      <div class="section-heading">
-        <p class="eyebrow">Product stance</p>
-        <h2 id="principles-title">Stability outside. Adaptation inside.</h2>
-        <p>The public story is simple: Tact should help when the field calls for help, stay literal when precision matters, and make risky state visible without turning the keyboard into chrome.</p>
+    <section class="section tools-section" id="tools" aria-labelledby="tools-title">
+      <div class="section-copy section-copy-wide">
+        <p class="eyebrow">Tools where you type</p>
+        <h2 id="tools-title">Codes, symbols, emoji, scripts, and clipboard review without leaving the keyboard.</h2>
       </div>
 
-      <div class="principle-grid">
-        <article>
-          <span class="principle-index">01</span>
-          <h3>Do not move the alphabet</h3>
-          <p>Spatial memory is valuable. Tact adapts touch interpretation and policy underneath a stable visual layout.</p>
+      <div class="tool-grid">
+        <article class="tool-card tool-card-review">
+          <img src="assets/screenshots/clipboard-full.webp" width="1080" height="2400" loading="lazy" alt="Tact clipboard review surface showing a guarded paste prompt.">
+          <div>
+            <h3>Review before paste</h3>
+            <p>Multiline clipboard content is held for review before it reaches the field.</p>
+          </div>
         </article>
-        <article>
-          <span class="principle-index">02</span>
-          <h3>Keep risky actions separate</h3>
-          <p>Backspace, Send, Enter, and the keyboard menu occupy predictable homes so accidental taps are easier to avoid.</p>
+        <article class="tool-card">
+          <img src="assets/screenshots/otp-sources-keyboard.webp" width="1080" height="1320" loading="lazy" alt="Tact OTP source picker with PyPI, npm, and Cloudflare source buttons.">
+          <div>
+            <h3>Codes at the source</h3>
+            <p>Managed OTP sources appear as recognizable source buttons inside the keyboard.</p>
+          </div>
         </article>
-        <article>
-          <span class="principle-index">03</span>
-          <h3>Treat private fields as private</h3>
-          <p>Password, OTP, card, and terminal contexts suppress learning, previews, voice, and AI where those behaviors would be wrong.</p>
+        <article class="tool-card">
+          <img src="assets/screenshots/emoji-keyboard.webp" width="1080" height="1320" loading="lazy" alt="Tact emoji browser with recent emoji and search.">
+          <div>
+            <h3>Emoji in flow</h3>
+            <p>Recent emoji and search sit in the same reachable keyboard surface.</p>
+          </div>
         </article>
-        <article>
-          <span class="principle-index">04</span>
-          <h3>Name the tools</h3>
-          <p>Corrections, voice, and AI rewrites should be deliberate controls with undo paths, not ambient behavior that changes text silently.</p>
+        <article class="tool-card">
+          <img src="assets/screenshots/unicode-keyboard.webp" width="1080" height="1320" loading="lazy" alt="Tact Unicode symbol browser with symbol rows and search.">
+          <div>
+            <h3>Symbols for real writing</h3>
+            <p>Unicode search keeps punctuation, math, currency, and special symbols close.</p>
+          </div>
+        </article>
+        <article class="tool-card">
+          <img src="assets/screenshots/letter-scripts-keyboard.webp" width="1080" height="1320" loading="lazy" alt="Tact writing script picker with alternate letter styles.">
+          <div>
+            <h3>Alternate scripts</h3>
+            <p>Switch letter styles from the keyboard when plain text needs more expression.</p>
+          </div>
+        </article>
+        <article class="tool-card">
+          <img src="assets/screenshots/otp-background-keyboard.webp" width="1080" height="1320" loading="lazy" alt="Tact OTP keypad and HUD over a custom keyboard background.">
+          <div>
+            <h3>Make it yours</h3>
+            <p>Custom backgrounds preserve legibility while giving the keyboard a personal surface.</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section status-section" id="status" aria-labelledby="status-title">
-      <div class="section-heading">
-        <p class="eyebrow">Build status</p>
-        <h2 id="status-title">Early Android implementation, not a public release.</h2>
-        <p>The keyboard is being built as a native Android IME. The current work is focused on installability, field policy, keyboard rendering, touch geometry, correction behavior, and terminal-specific safety.</p>
+    <section class="terminal-band" id="terminal" aria-labelledby="terminal-title">
+      <div class="terminal-copy">
+        <p class="eyebrow">Terminal safety</p>
+        <h2 id="terminal-title">Literal where literal matters.</h2>
+        <p>Terminal mode is built for command entry: no prose rewrite, no hidden submit target, no accidental newline paste. The controls are visible because the cost of a surprise is high.</p>
+        <ul class="check-list">
+          <li>Esc, Tab, Ctrl, shell punctuation, and Enter stay reachable.</li>
+          <li>Paste Shield catches risky multiline paste before submission.</li>
+          <li>Text mode and terminal mode are explicit surfaces, not guesses hidden behind the keys.</li>
+        </ul>
       </div>
+      <figure class="terminal-figure">
+        <img src="assets/screenshots/terminal-full.webp" width="1080" height="2400" loading="lazy" alt="Terminal app with Tact terminal keyboard.">
+      </figure>
+    </section>
 
-      <div class="status-list" aria-label="Implementation areas">
-        <div class="status-row">
-          <span>IME foundation</span>
-          <b>Started</b>
-        </div>
-        <div class="status-row">
-          <span>Prose keyboard surface</span>
-          <b>In progress</b>
-        </div>
-        <div class="status-row">
-          <span>Terminal and paste safety</span>
-          <b>In progress</b>
-        </div>
-        <div class="status-row">
-          <span>Public Android download</span>
-          <b>Not yet</b>
-        </div>
+    <section class="section privacy-section" aria-labelledby="privacy-title">
+      <div class="section-copy">
+        <p class="eyebrow">Privacy posture</p>
+        <h2 id="privacy-title">Private fields stay quiet.</h2>
+        <p>Tact is designed around explicit field policy. Help appears where it belongs, and sensitive contexts suppress behavior that would be wrong there.</p>
+      </div>
+      <div class="privacy-grid">
+        <article>
+          <h3>No cloud rewrite service</h3>
+          <p>The current keyboard story is local-first. Assistance should be deliberate, visible, and reversible.</p>
+        </article>
+        <article>
+          <h3>Private field gates</h3>
+          <p>Password, card, OTP, and private contexts suppress learning and preview surfaces.</p>
+        </article>
+        <article>
+          <h3>Clipboard by action</h3>
+          <p>Clipboard review is tied to explicit paste behavior rather than ambient harvesting.</p>
+        </article>
+        <article>
+          <h3>Real capture harness</h3>
+          <p>The product shots come from the Android emulator with synthetic text and managed fixture data.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="preview-band" id="preview" aria-labelledby="preview-title">
+      <div>
+        <p class="eyebrow">Preview</p>
+        <h2 id="preview-title">Built as a native Android IME.</h2>
+        <p>Tact is under active development. The current implementation covers the keyboard renderer, field policies, terminal controls, clipboard review, emoji and Unicode browsers, OTP source surfaces, writing scripts, and custom backgrounds.</p>
+      </div>
+      <div class="preview-actions" aria-label="Preview links">
+        <a class="button button-primary" href="mailto:hello@tact.tools?subject=Tact%20Keyboard%20preview">Join the preview list</a>
+        <a class="button button-secondary button-light" href="https://github.com/tact-tools/tact-keyboard-android">View Android repo</a>
       </div>
     </section>
   </main>
