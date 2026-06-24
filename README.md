@@ -14,6 +14,18 @@ file server:
 python3 -m http.server 8080
 ```
 
+## Deploy
+
+Staging is served by GitHub Pages from the static-only `gh-pages` branch:
+
+```bash
+scripts/deploy-github-pages.sh
+```
+
+The `main` branch keeps the source files, screenshot harness, and Android/mock
+app submodules. Publishing from `gh-pages` avoids GitHub Pages trying to clone
+those development-only submodules during its checkout step.
+
 ## Assets
 
 Android product screenshots are generated from the real Tact keyboard plus
