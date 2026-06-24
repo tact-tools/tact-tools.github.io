@@ -14,7 +14,7 @@ cleanup() {
 trap cleanup EXIT
 
 mkdir -p "$workdir/assets/brand" "$workdir/assets/screenshots"
-cp "$repo_root/index.html" "$repo_root/styles.css" "$repo_root/.nojekyll" "$workdir/"
+cp "$repo_root/index.html" "$repo_root/styles.css" "$repo_root/.nojekyll" "$repo_root/CNAME" "$workdir/"
 cp -R "$repo_root/privacy" "$workdir/"
 cp -R "$repo_root/terms" "$workdir/"
 cp "$repo_root/assets/brand/tact-tools-icon.png" "$workdir/assets/brand/"
