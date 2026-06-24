@@ -50,7 +50,7 @@
 
       <article class="policy-section">
         <h2>Who We Are</h2>
-        <p>This policy applies to Tact Keyboard, an Android keyboard app published by Tact Tools, and to the public Tact website. Contact us at <a href="mailto:hello@tact.tools">hello@tact.tools</a>.</p>
+        <p>This policy applies to Tact Keyboard, an Android keyboard app published by Tact Tools, an independent software project operated from Massachusetts, United States, and to the public Tact website. Contact us at <a href="mailto:hello@tact.tools">hello@tact.tools</a>.</p>
       </article>
 
       <article class="policy-section">
@@ -69,6 +69,19 @@
         <h2>Network Access</h2>
         <p>Tact does not send typed text, composing text, selected text, surrounding text, clipboard contents, field metadata, OTP secrets, OTP codes, saved passwords, screenshots, microphone audio, camera frames, or debug traces to Tact Tools servers.</p>
         <p>The app may use network access to download fixed public assets, such as dictionary packs, Unicode symbol data, and emoji annotation data. If remote OTP artwork is enabled, Tact may also fetch an image URL that came from a saved OTP source so the source can have recognizable artwork. These requests are not supposed to include your typed text, secrets, clipboard contents, or the app you are typing in.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Public Asset And Third-Party Sources</h2>
+        <p>Public assets may be downloaded from Tact Tools-controlled GitHub releases, Unicode Consortium resources, GitHub-hosted Unicode CLDR resources, or public content providers for optional OTP source artwork. These providers may receive ordinary request metadata, such as your IP address, user agent, request time, and the URL requested.</p>
+        <p>Tact does not append typed text, clipboard contents, OTP secrets, OTP codes, saved passwords, field metadata, screenshots, microphone audio, or camera frames to these asset requests.</p>
+        <p>Tact does not include an app-owned crash reporting SDK or crash reporting backend. If you install Tact through an app store, that store or the Android platform provider may collect installation, crash, or device diagnostics under its own privacy terms.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Security</h2>
+        <p>Tact stores app data locally using Android app storage and relies on Android's app sandbox and device security features. Where available, OTP secrets and saved OTP passwords use Android Keystore-backed encryption that requires device authentication before secrets are used. Network requests for downloadable assets use HTTPS.</p>
+        <p>No app, device, or network connection can be guaranteed absolutely secure. Keep your device updated, use a strong device lock, and remove saved OTP sources or app data when you no longer want Tact to keep them on the device.</p>
       </article>
 
       <article class="policy-section">
@@ -110,6 +123,7 @@
     <p><strong>Tact Keyboard</strong> is under active development.</p>
     <div class="footer-links">
       <a href="../">Product</a>
+      <a href="../terms/">Terms</a>
       <a href="mailto:hello@tact.tools">hello@tact.tools</a>
     </div>
   </footer>
