@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy Policy for Tact Keyboard, an Android keyboard by Tact Tools.">
+  <meta property="og:title" content="Tact Keyboard Privacy Policy">
+  <meta property="og:description" content="How Tact Keyboard handles typed text, clipboard data, OTP sources, screen capture, camera, microphone, and local settings.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tact.tools/privacy/">
+  <title>Privacy Policy | Tact Keyboard</title>
+  <link rel="icon" type="image/png" href="../assets/brand/tact-tools-icon.png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-nav" aria-label="Primary">
+    <a class="brand" href="../" aria-label="Tact Keyboard home">
+      <img class="brand-mark" src="../assets/brand/tact-tools-icon.png" alt="" aria-hidden="true">
+      <span>Tact</span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="../#fields">Fields</a>
+      <a href="../#tools">Tools</a>
+      <a href="../#terminal">Terminal</a>
+      <a href="../#preview">Preview</a>
+    </nav>
+  </header>
+
+  <main class="policy-page">
+    <section class="policy-hero" aria-labelledby="policy-title">
+      <div class="policy-hero-copy">
+        <p class="eyebrow">Privacy Policy</p>
+        <h1 id="policy-title">Tact Keyboard</h1>
+        <p class="policy-lede">Tact Keyboard is designed as a local-first Android keyboard. This policy explains what the app can access, what it stores on your device, and the limited network access used for public keyboard assets.</p>
+        <p class="policy-meta">Effective date: June 24, 2026</p>
+      </div>
+    </section>
+
+    <section class="policy-content" aria-label="Privacy details">
+      <article class="policy-summary">
+        <h2>Summary</h2>
+        <ul>
+          <li>Tact does not sell personal or sensitive user data.</li>
+          <li>Tact does not include ads, advertising SDKs, analytics SDKs, or a crash reporting backend.</li>
+          <li>Typed text, clipboard contents, OTP secrets, saved passwords, screenshots, microphone audio, and camera frames are not sent to Tact Tools servers.</li>
+          <li>The app may download fixed public assets, such as dictionary, Unicode, and emoji catalog data, and may fetch optional source artwork for saved OTP sources.</li>
+          <li>Most keyboard data is processed in memory or stored locally on your device for the feature you chose to use.</li>
+        </ul>
+      </article>
+
+      <article class="policy-section">
+        <h2>Who We Are</h2>
+        <p>This policy applies to Tact Keyboard, an Android keyboard app published by Tact Tools, an independent software project operated from Massachusetts, United States, and to the public Tact website. Contact us at <a href="mailto:hello@tact.tools">hello@tact.tools</a>.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Data Tact Handles</h2>
+        <p>Because Tact is an Android keyboard, Android may provide the app with information from the field you are typing in, such as typed text, selection state, field type, and nearby text needed for editing. Tact uses this information to type, delete, show local suggestions, choose field-specific controls, and avoid unsafe behavior in sensitive fields.</p>
+        <p>Tact can also handle clipboard content after you take an explicit paste or clipboard-review action; microphone input when you enable voice input and trigger it; camera frames when you scan an OTP setup code; screen pixels when you start a pointer loupe, QR import, or background sampling flow; and OTP source data if you choose to save one-time-code sources.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Data Stored On Your Device</h2>
+        <p>Tact may store app settings, keyboard background choices, typing calibration values, accepted local dictionary words, emoji recents, cached public asset files, saved OTP source metadata, OTP secrets, and optional saved password placement for OTP workflows. This storage is used to provide the keyboard features you enabled.</p>
+        <p>OTP secrets and saved OTP passwords are kept in local app storage. When device credential protection is available, Tact uses Android Keystore-backed encryption that requires device authentication before secrets are used. If you choose an unencrypted fallback where the app offers one, those values still remain on the device, but they are not protected by the same device-credential encryption.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Purchases And Pro Preview</h2>
+        <p>Tact may store local entitlement state, such as whether a Pro Preview has started, how many preview days remain, and whether a Google Play lifetime unlock is currently owned. This entitlement state is used only to enable or disable app features.</p>
+        <p>Tact does not use trial or purchase state to track what you type, which apps you type in, what fields you use, clipboard contents, OTP material, or keyboard usage history. Purchases are processed by Google Play under Google's terms and privacy policy.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Network Access</h2>
+        <p>Tact does not send typed text, composing text, selected text, surrounding text, clipboard contents, field metadata, OTP secrets, OTP codes, saved passwords, screenshots, microphone audio, camera frames, or debug traces to Tact Tools servers.</p>
+        <p>The app may use network access to download fixed public assets, such as dictionary packs, Unicode symbol data, and emoji annotation data. If remote OTP artwork is enabled, Tact may also fetch an image URL that came from a saved OTP source so the source can have recognizable artwork. These requests are not supposed to include your typed text, secrets, clipboard contents, or the app you are typing in.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Public Asset And Third-Party Sources</h2>
+        <p>Public assets may be downloaded from Tact Tools-controlled GitHub releases, Unicode Consortium resources, GitHub-hosted Unicode CLDR resources, or public content providers for optional OTP source artwork. These providers may receive ordinary request metadata, such as your IP address, user agent, request time, and the URL requested.</p>
+        <p>Tact does not append typed text, clipboard contents, OTP secrets, OTP codes, saved passwords, field metadata, screenshots, microphone audio, or camera frames to these asset requests.</p>
+        <p>Tact does not include an app-owned crash reporting SDK or crash reporting backend. If you install Tact through an app store, that store or the Android platform provider may collect installation, crash, or device diagnostics under its own privacy terms.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Security</h2>
+        <p>Tact stores app data locally using Android app storage and relies on Android's app sandbox and device security features. Where available, OTP secrets and saved OTP passwords use Android Keystore-backed encryption that requires device authentication before secrets are used. Network requests for downloadable assets use HTTPS.</p>
+        <p>No app, device, or network connection can be guaranteed absolutely secure. Keep your device updated, use a strong device lock, and remove saved OTP sources or app data when you no longer want Tact to keep them on the device.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Clipboard</h2>
+        <p>Tact does not read the clipboard when the keyboard starts, when focus changes, or during ordinary typing. Clipboard access is tied to an explicit paste, paste review, or clipboard action. Clipboard contents are not used for learning and are not sent to network services by Tact.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Camera, Microphone, And Screen Capture</h2>
+        <p>Camera access is used for user-triggered OTP setup code scanning. Microphone access is used for user-triggered voice input, with the app preferring Android's on-device speech recognition where available. Screen capture and accessibility screenshots are used for user-triggered features such as pointer loupe, visible QR import, shortcut placement, and keyboard background sampling.</p>
+        <p>These inputs are used for the active operation and are not sold, used for advertising, or sent to Tact Tools servers.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Accessibility Service</h2>
+        <p>Tact's optional accessibility service supports keyboard-adjacent tools such as pointer loupe, keyboard controls, contextual shortcuts, and focused-field actions. Android may allow the service to observe window state, focused controls, view text changes, and screen content needed for those tools. Tact uses that access to provide the visible feature you enabled and to route explicit user actions.</p>
+        <p>The accessibility service is optional. If you do not enable it in Android settings, the base keyboard continues to work, but features that depend on accessibility access may be unavailable.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Website</h2>
+        <p>The Tact website is a static site. It does not set tracking cookies or include analytics scripts. The hosting provider and your browser may still create ordinary request logs needed to serve the site.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Retention And Deletion</h2>
+        <p>Local settings and saved data remain on your device until you change settings, clear the relevant in-app data where available, uninstall the app, or clear the app's storage through Android. Cached public catalog data may remain in Android cache storage and can be removed by clearing app cache or app storage.</p>
+        <p>You can contact <a href="mailto:hello@tact.tools">hello@tact.tools</a> with privacy questions. Because the current app does not create Tact accounts or upload keyboard data to Tact Tools servers, most user data deletion is handled locally on your device.</p>
+      </article>
+
+      <article class="policy-section">
+        <h2>Changes</h2>
+        <p>We may update this policy as Tact changes. If app behavior changes in a way that materially affects privacy, the policy will be updated and the effective date will change.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Tact Keyboard</strong> is under active development.</p>
+    <div class="footer-links">
+      <a href="../">Product</a>
+      <a href="../terms/">Terms</a>
+      <a href="mailto:hello@tact.tools">hello@tact.tools</a>
+    </div>
+  </footer>
+</body>
+</html>
