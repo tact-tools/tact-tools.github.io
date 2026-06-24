@@ -309,9 +309,7 @@ seed_otp_source_icons() {
 
   adb_cmd shell "run-as $PACKAGE sh -c 'rm -rf files/otp-source-icons && mkdir -p files/otp-source-icons'"
   seed_pypi_otp_source_icon "$tmp_dir" "source-pypi" "1780800000000"
-  seed_otp_source_icon "$tmp_dir" "source-github" "1780800001000" "https://github.com/favicon.ico" "[1]" "white"
   seed_otp_source_icon "$tmp_dir" "source-npm" "1780800002000" "https://static-production.npmjs.com/1996fcfdf7ca81ea795f67f093d7f449.png" ""
-  seed_otp_source_icon "$tmp_dir" "source-stripe" "1780800003000" "https://stripe.com/favicon.ico" "[0]"
   seed_otp_source_icon "$tmp_dir" "source-cloudflare" "1780800004000" "https://www.cloudflare.com/favicon.ico" ""
 
   rm -rf "$tmp_dir"
@@ -384,7 +382,80 @@ seed_otp_sources() {
   adb_cmd shell "run-as $PACKAGE sh -c 'mkdir -p shared_prefs && cat > shared_prefs/tact_otp_vault.xml'" <<'XML'
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <string name="otp_vault_records_json">[{"schema":1,"id":"source-pypi","issuer":"PyPI","accountName":"release@tact.tools","type":"TOTP","algorithm":"SHA1","digits":6,"periodSeconds":30,"counter":null,"imageUrl":"file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-pypi-1780800000000.png","colorHex":"3775A9","createdAtMillis":1780800000000,"updatedAtMillis":1780800000000,"encryptedSecret":{"scheme":"plaintext-base64-v1","keyAlias":"none","ivBase64":"none","ciphertextBase64":"c2NyZWVuc2hvdC1zZWNyZXQ="},"codeRecipe":{"kind":"codeOnly"}},{"schema":1,"id":"source-github","issuer":"GitHub","accountName":"deploy@tact.tools","type":"TOTP","algorithm":"SHA1","digits":6,"periodSeconds":30,"counter":null,"imageUrl":"file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-github-1780800001000.png","colorHex":"24292F","createdAtMillis":1780800001000,"updatedAtMillis":1780800001000,"encryptedSecret":{"scheme":"plaintext-base64-v1","keyAlias":"none","ivBase64":"none","ciphertextBase64":"c2NyZWVuc2hvdC1zZWNyZXQ="},"codeRecipe":{"kind":"codeOnly"}},{"schema":1,"id":"source-npm","issuer":"npm","accountName":"packages@tact.tools","type":"TOTP","algorithm":"SHA1","digits":6,"periodSeconds":30,"counter":null,"imageUrl":"file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-npm-1780800002000.png","colorHex":"C9382C","createdAtMillis":1780800002000,"updatedAtMillis":1780800002000,"encryptedSecret":{"scheme":"plaintext-base64-v1","keyAlias":"none","ivBase64":"none","ciphertextBase64":"c2NyZWVuc2hvdC1zZWNyZXQ="},"codeRecipe":{"kind":"codeOnly"}},{"schema":1,"id":"source-stripe","issuer":"Stripe","accountName":"billing@tact.tools","type":"TOTP","algorithm":"SHA1","digits":6,"periodSeconds":30,"counter":null,"imageUrl":"file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-stripe-1780800003000.png","colorHex":"635BFF","createdAtMillis":1780800003000,"updatedAtMillis":1780800003000,"encryptedSecret":{"scheme":"plaintext-base64-v1","keyAlias":"none","ivBase64":"none","ciphertextBase64":"c2NyZWVuc2hvdC1zZWNyZXQ="},"codeRecipe":{"kind":"codeOnly"}},{"schema":1,"id":"source-cloudflare","issuer":"Cloudflare","accountName":"edge@tact.tools","type":"TOTP","algorithm":"SHA1","digits":6,"periodSeconds":30,"counter":null,"imageUrl":"file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-cloudflare-1780800004000.png","colorHex":"F38020","createdAtMillis":1780800004000,"updatedAtMillis":1780800004000,"encryptedSecret":{"scheme":"plaintext-base64-v1","keyAlias":"none","ivBase64":"none","ciphertextBase64":"c2NyZWVuc2hvdC1zZWNyZXQ="},"codeRecipe":{"kind":"codeOnly"}}]</string>
+    <string name="otp_vault_records_json">[
+        {
+            "schema": 1,
+            "id": "source-pypi",
+            "issuer": "PyPI",
+            "accountName": "release@tact.tools",
+            "type": "TOTP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30,
+            "counter": null,
+            "imageUrl": "file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-pypi-1780800000000.png",
+            "colorHex": "3775A9",
+            "createdAtMillis": 1780800000000,
+            "updatedAtMillis": 1780800000000,
+            "encryptedSecret": {
+                "scheme": "plaintext-base64-v1",
+                "keyAlias": "none",
+                "ivBase64": "none",
+                "ciphertextBase64": "c2NyZWVuc2hvdC1zZWNyZXQ="
+            },
+            "codeRecipe": {
+                "kind": "codeOnly"
+            }
+        },
+        {
+            "schema": 1,
+            "id": "source-npm",
+            "issuer": "npm",
+            "accountName": "packages@tact.tools",
+            "type": "TOTP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30,
+            "counter": null,
+            "imageUrl": "file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-npm-1780800002000.png",
+            "colorHex": "C9382C",
+            "createdAtMillis": 1780800002000,
+            "updatedAtMillis": 1780800002000,
+            "encryptedSecret": {
+                "scheme": "plaintext-base64-v1",
+                "keyAlias": "none",
+                "ivBase64": "none",
+                "ciphertextBase64": "c2NyZWVuc2hvdC1zZWNyZXQ="
+            },
+            "codeRecipe": {
+                "kind": "codeOnly"
+            }
+        },
+        {
+            "schema": 1,
+            "id": "source-cloudflare",
+            "issuer": "Cloudflare",
+            "accountName": "edge@tact.tools",
+            "type": "TOTP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30,
+            "counter": null,
+            "imageUrl": "file:///data/user/0/tools.tact.keyboard/files/otp-source-icons/source-cloudflare-1780800004000.png",
+            "colorHex": "F38020",
+            "createdAtMillis": 1780800004000,
+            "updatedAtMillis": 1780800004000,
+            "encryptedSecret": {
+                "scheme": "plaintext-base64-v1",
+                "keyAlias": "none",
+                "ivBase64": "none",
+                "ciphertextBase64": "c2NyZWVuc2hvdC1zZWNyZXQ="
+            },
+            "codeRecipe": {
+                "kind": "codeOnly"
+            }
+        }
+    ]</string>
 </map>
 XML
 }

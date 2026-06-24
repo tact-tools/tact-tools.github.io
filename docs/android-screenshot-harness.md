@@ -41,10 +41,10 @@ host, focuses its real editable field, and captures seven states:
   clipboard text.
 - `emoji`: the emoji browser with a recent-used row.
 - `unicode`: the Unicode browser with the default symbol grid.
-- `otp-sources`: the one-time-code source browser with synthetic PyPI, GitHub,
-  npm, Stripe, and Cloudflare sources. The fixture points each source at a
-  local managed icon file seeded from those sites' favicons/artwork, including a
-  blue PyPI tile that matches an on-device website crop.
+- `otp-sources`: the one-time-code source browser with synthetic PyPI, npm,
+  and Cloudflare sources. The fixture points each source at a local managed icon
+  file seeded from those sites' favicons/artwork, including a blue PyPI tile
+  that matches an on-device website crop.
 
 By default it writes raw PNGs and optional WebP derivatives under
 `captures/android-assets/`, which is ignored by Git.
