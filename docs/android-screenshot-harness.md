@@ -32,7 +32,7 @@ The harness builds and installs:
 
 It seeds screenshot-safe local fixtures for emoji recents, clipboard review,
 and one-time-code sources, selects Tact as the active IME, launches each mock
-host, focuses its real editable field, and captures seven states:
+host, focuses its real editable field, and captures nine states:
 
 - `editor`: real Tact over the mock document editor.
 - `browser`: real Tact over the mock browser address field.
@@ -45,6 +45,10 @@ host, focuses its real editable field, and captures seven states:
   and Cloudflare sources. The fixture points each source at a local managed icon
   file seeded from those sites' favicons/artwork, including a blue PyPI tile
   that matches an on-device website crop.
+- `letter-scripts`: the writing-script chooser with normal, cursive, old
+  English, bold, and outline letter modes.
+- `otp-background`: the one-time-code browser over a seeded custom keyboard
+  background image, showing the OTP HUD and wallpaper support together.
 
 By default it writes raw PNGs and optional WebP derivatives under
 `captures/android-assets/`, which is ignored by Git.
@@ -78,6 +82,8 @@ scripts/capture-android-assets.sh --scenario clipboard
 scripts/capture-android-assets.sh --scenario emoji
 scripts/capture-android-assets.sh --scenario unicode
 scripts/capture-android-assets.sh --scenario otp-sources
+scripts/capture-android-assets.sh --scenario letter-scripts
+scripts/capture-android-assets.sh --scenario otp-background
 scripts/capture-android-assets.sh --serial emulator-5554
 scripts/capture-android-assets.sh --skip-build --skip-install
 OUT_DIR=/tmp/tact-shots scripts/capture-android-assets.sh

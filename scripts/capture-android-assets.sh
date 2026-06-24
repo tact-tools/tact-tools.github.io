@@ -35,6 +35,8 @@ SCENARIOS=(
   "emoji|tact-mock-editor|tools.tact.mock.editor|.EditorActivity|540|720|open_emoji_recents|Emoji browser with recent-used grid"
   "unicode|tact-mock-editor|tools.tact.mock.editor|.EditorActivity|540|720|open_unicode|Unicode browser"
   "otp-sources|tact-mock-editor|tools.tact.mock.editor|.EditorActivity|540|720|open_otp_sources|One-time-code source browser"
+  "letter-scripts|tact-mock-editor|tools.tact.mock.editor|.EditorActivity|540|720|open_letter_scripts|Writing-script chooser"
+  "otp-background|tact-mock-editor|tools.tact.mock.editor|.EditorActivity|540|720|open_otp_sources_with_background|One-time-code browser over custom background"
 )
 
 usage() {
@@ -50,7 +52,8 @@ Options:
   --out-dir DIR         output directory. Default: captures/android-assets.
   --scenario NAME       capture only one scenario. Repeatable.
                         Known: editor, browser, terminal, clipboard, emoji,
-                               unicode, otp-sources.
+                               unicode, otp-sources, letter-scripts,
+                               otp-background.
   --skip-build          reuse the existing debug APK.
   --skip-install        reuse apps already installed on the emulator.
   --no-convert          skip optional WebP/crop generation.
@@ -287,6 +290,7 @@ reload_tact_process() {
 }
 
 seed_fixture_data() {
+  clear_keyboard_background_fixture
   seed_emoji_recents
   seed_otp_source_icons
   seed_otp_sources
@@ -460,6 +464,49 @@ seed_otp_sources() {
 XML
 }
 
+clear_keyboard_background_fixture() {
+  adb_cmd shell "run-as $PACKAGE sh -c 'rm -rf files/keyboard-backgrounds shared_prefs/tact_settings.xml'" >/dev/null || true
+}
+
+seed_keyboard_background_fixture() {
+  require_command magick
+
+  local tmp_dir background_jpg updated_at filename uri
+  tmp_dir="$(mktemp -d)"
+  background_jpg="$tmp_dir/keyboard-background.jpg"
+  updated_at="1780800005000"
+  filename="keyboard-background-$updated_at.jpg"
+  uri="file:///data/user/0/$PACKAGE/files/keyboard-backgrounds/$filename"
+
+  magick -seed 1780800005 -size 1080x1320 plasma:fractal \
+    -blur 0x18 \
+    -modulate 88,135,215 \
+    -fill '#07111fcc' \
+    -colorize 42% \
+    -fill '#14b8a666' \
+    -draw 'polygon 0,920 1080,620 1080,1320 0,1320' \
+    -fill '#f59e0b55' \
+    -draw 'polygon 0,0 1080,0 1080,260 0,540' \
+    -quality 92 \
+    "$background_jpg"
+
+  adb_cmd shell "run-as $PACKAGE sh -c 'rm -rf files/keyboard-backgrounds && mkdir -p files/keyboard-backgrounds shared_prefs'"
+  base64 "$background_jpg" | \
+    adb_cmd shell "run-as $PACKAGE sh -c 'base64 -d > files/keyboard-backgrounds/$filename'"
+  adb_cmd shell "run-as $PACKAGE sh -c 'cat > shared_prefs/tact_settings.xml'" <<XML
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="keyboard_background_image_uri">$uri</string>
+    <boolean name="keyboard_background_dark_theme" value="true" />
+    <float name="keyboard_background_noise_entropy" value="0.0" />
+    <float name="keyboard_background_blur_radius" value="0.0" />
+    <long name="keyboard_background_updated_at_millis" value="$updated_at" />
+</map>
+XML
+
+  rm -rf "$tmp_dir"
+}
+
 wait_for_ime() {
   local served_package="$1"
   local attempt dumpsys
@@ -577,6 +624,7 @@ capture_scenario() {
 
   echo "Capturing $name: $description"
   adb_cmd shell am force-stop "$mock_package" >/dev/null || true
+  prepare_capture_action "$action"
   select_tact_ime
 
   adb_cmd shell am start -W -n "$mock_package/$activity" >/dev/null
@@ -587,6 +635,18 @@ capture_scenario() {
   wait_and_capture_screen "$png"
   cleanup_capture_action "$action"
   convert_asset "$name" "$png"
+}
+
+prepare_capture_action() {
+  case "$1" in
+    open_otp_sources_with_background)
+      seed_keyboard_background_fixture
+      reload_tact_process
+      rebind_tact_ime
+      ;;
+    *)
+      ;;
+  esac
 }
 
 run_capture_action() {
@@ -616,6 +676,18 @@ run_capture_action() {
       adb_cmd shell input tap 690 1625 >/dev/null
       sleep 3
       ;;
+    open_letter_scripts)
+      adb_cmd shell input tap 975 2060 >/dev/null
+      sleep 0.8
+      adb_cmd shell input tap 460 1845 >/dev/null
+      sleep 1
+      ;;
+    open_otp_sources_with_background)
+      adb_cmd shell input tap 990 2120 >/dev/null
+      sleep 1
+      adb_cmd shell input tap 690 1625 >/dev/null
+      sleep 3
+      ;;
     *) fail "unknown capture action: $1" ;;
   esac
 }
@@ -638,6 +710,16 @@ cleanup_capture_action() {
     open_otp_sources)
       adb_cmd shell input tap 1000 1685 >/dev/null || true
       sleep 0.5
+      ;;
+    open_letter_scripts)
+      adb_cmd shell input tap 540 1000 >/dev/null || true
+      sleep 0.5
+      ;;
+    open_otp_sources_with_background)
+      adb_cmd shell input tap 1000 1685 >/dev/null || true
+      sleep 0.5
+      clear_keyboard_background_fixture
+      reload_tact_process
       ;;
     *) fail "unknown capture action: $1" ;;
   esac

@@ -32,9 +32,9 @@ scripts/capture-android-assets.sh
 The script requires `curl` and ImageMagick, builds and installs
 `tact-keyboard-android`, `tact-mock-editor`, `tact-mock-browser`, and
 `tact-mock-terminal`, then captures editor, browser, terminal, clipboard, emoji,
-Unicode, and OTP source states. The OTP fixture seeds local managed icons from
-PyPI/npm/Cloudflare site artwork. Raw PNGs and web-ready derivatives are written
-under `captures/android-assets/`. See
+Unicode, OTP source, writing-script, and custom-background OTP states. The OTP
+fixture seeds local managed icons from PyPI/npm/Cloudflare site artwork. Raw
+PNGs and web-ready derivatives are written under `captures/android-assets/`. See
 `docs/android-screenshot-harness.md` for the full workflow and safety notes.
 
 Only commit selected website assets. Keep raw emulator captures, logs, and
