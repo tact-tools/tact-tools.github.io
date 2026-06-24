@@ -2,8 +2,8 @@
 
 Static website for `tact.tools`.
 
-The first version is dependency-free HTML/CSS so it can be deployed on GitHub
-Pages, Netlify, Cloudflare Pages, or any plain static host.
+The website is dependency-free HTML/CSS so it can be deployed on GitHub Pages,
+Netlify, Cloudflare Pages, or any plain static host.
 
 ## Local Preview
 
@@ -16,13 +16,26 @@ python3 -m http.server 8080
 
 ## Assets
 
-The screenshots in `assets/screenshots/` are cropped from synthetic Android
-emulator smoke-test captures in `../tact-keyboard-android/artifacts/`. They do
-not contain private user data.
+Android product screenshots are generated from the real Tact keyboard plus
+three synthetic host app submodules. Initialize them after cloning:
 
-Current source captures:
+```bash
+git submodule update --init --recursive
+```
 
-- `prose-full.webp`: `current-prose.png`
-- `prose-suggestions.webp`: `phase6a-smoke/prose-suggestions.png`
-- `terminal-paste-shield.webp`: `phase7-terminal-smoke/paste-shield-paste-without-enter.png`
-- `tact-mesh.webp`: `phase5a-mesh/prose-overlay.png`
+Then start a disposable emulator and run:
+
+```bash
+scripts/capture-android-assets.sh
+```
+
+The script requires `curl` and ImageMagick, builds and installs
+`tact-keyboard-android`, `tact-mock-editor`, `tact-mock-browser`, and
+`tact-mock-terminal`, then captures editor, browser, terminal, clipboard, emoji,
+Unicode, and OTP source states. The OTP fixture seeds local managed icons from
+PyPI/GitHub/npm/Stripe/Cloudflare site artwork. Raw PNGs and web-ready
+derivatives are written under `captures/android-assets/`. See
+`docs/android-screenshot-harness.md` for the full workflow and safety notes.
+
+Only commit selected website assets. Keep raw emulator captures, logs, and
+local preview output ignored.

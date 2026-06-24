@@ -1,0 +1,12 @@
+[submodule "tact-keyboard-android"]
+	path = tact-keyboard-android
+	url = https://github.com/tact-tools/tact-keyboard-android.git
+[submodule "tact-mock-editor"]
+	path = tact-mock-editor
+	url = https://github.com/tact-tools/tact-mock-editor.git
+[submodule "tact-mock-browser"]
+	path = tact-mock-browser
+	url = https://github.com/tact-tools/tact-mock-browser.git
+[submodule "tact-mock-terminal"]
+	path = tact-mock-terminal
+	url = https://github.com/tact-tools/tact-mock-terminal.git

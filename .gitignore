@@ -6,6 +6,7 @@ dist/
 .vite/
 *.log
 .preview*.png
+captures/
 
 # Generated during local screenshot preparation; WebP assets are committed.
 assets/screenshots/*-full.png

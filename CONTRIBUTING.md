@@ -32,13 +32,14 @@ verification instructions.
 
 ### Assets
 
-The screenshots in `assets/screenshots/` come from synthetic Android emulator
-captures in `../tact-keyboard-android/artifacts/`. Do not capture or commit real
-private input, clipboard contents, passwords, messages, or account data.
+The screenshots in `assets/screenshots/` should come from the
+`tact-keyboard-android` IME and the `tact-mock-*` host app submodules through
+`scripts/capture-android-assets.sh`. Do not capture or commit real private
+input, clipboard contents, passwords, messages, or account data.
 
-Commit only the assets the site needs. Local preview captures, generated full
-PNG crops, logs, caches, dependency directories, and build outputs should stay
-out of the repository.
+Commit only the assets the site needs. Local harness output under `captures/`,
+preview captures, generated full PNG crops, logs, caches, dependency
+directories, and build outputs should stay out of the repository.
 
 ## Commit Message Guidelines
 
